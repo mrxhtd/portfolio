@@ -1,0 +1,10 @@
+{
+  "name": "yousef-alhawary-portfolio",
+  "private": true,
+  "scripts": {
+    "dev": "live-server --port=5500 --open=/yousef-alhawary-portfolio.html"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
