@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0a">
 <title>Yousef Al-Hawary — Shopify Designer & Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,7 +11,9 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; background: #0a0a0a; color: #e8e4dc; min-height: 100vh; }
+  body { font-family: 'DM Sans', sans-serif; background: #0a0a0a; color: #e8e4dc; min-height: 100vh; overflow-x: hidden; }
+  .pf-work-url, .pf-work-name { overflow-wrap: anywhere; word-break: break-word; }
+  .pf-nav-links a, .pf-cta, .pf-work-card { -webkit-tap-highlight-color: rgba(232, 228, 220, 0.1); }
 
   .pf-nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem 2.5rem; border-bottom: 0.5px solid rgba(232,228,220,0.12); position: sticky; top: 0; background: #0a0a0a; z-index: 100; }
   .pf-logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 400; letter-spacing: 0.04em; color: #e8e4dc; }
@@ -209,26 +212,86 @@
   }
 
   @media (max-width: 900px) {
-    .pf-hero { grid-template-columns: 1fr; }
-    .pf-hero-right { min-height: min(58vh, 640px); }
-    .pf-hero-img { min-height: min(50vh, 560px); }
-    .pf-work-grid { grid-template-columns: repeat(2,1fr); }
-    .pf-skills-grid { grid-template-columns: repeat(2,1fr); }
-    .pf-process { grid-template-columns: repeat(2,1fr); }
+    .pf-hero { grid-template-columns: 1fr; min-height: auto; }
+    .pf-hero-left {
+      border-right: none;
+      border-bottom: 0.5px solid rgba(232,228,220,0.12);
+      padding: 3rem max(1.25rem, env(safe-area-inset-right)) 2.5rem max(1.25rem, env(safe-area-inset-left));
+      justify-content: flex-start;
+    }
+    .pf-hero-right { min-height: min(52vh, 520px); }
+    .pf-hero-img { min-height: min(44vh, 480px); }
+    .pf-work-grid { grid-template-columns: repeat(2, 1fr); }
+    .pf-skills-grid { grid-template-columns: repeat(2, 1fr); }
+    .pf-process { grid-template-columns: repeat(2, 1fr); }
     .pf-contact { grid-template-columns: 1fr; }
     .pf-contact-left { border-right: none; border-bottom: 0.5px solid rgba(232,228,220,0.12); }
+    .pf-section-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; margin-bottom: 2rem; }
+    .pf-footer { flex-wrap: wrap; justify-content: center; gap: 1rem; text-align: center; }
+    .pf-footer-text, .pf-avail { flex: 1 1 100%; justify-content: center; }
   }
   @media (max-width: 600px) {
-    .pf-nav { padding: 1.25rem; }
-    .pf-nav-links { gap: 1rem; }
+    .pf-nav {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+      padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) 1rem max(1rem, env(safe-area-inset-left));
+    }
+    .pf-logo { text-align: center; }
+    .pf-nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.25rem 0.5rem;
+      row-gap: 0.5rem;
+    }
+    .pf-nav-links li { flex: 0 0 auto; }
+    .pf-nav-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.35rem 0.85rem;
+      font-size: 11px;
+    }
     .pf-work-grid { grid-template-columns: 1fr; }
-    .pf-skills-grid { grid-template-columns: 1fr 1fr; }
-    .pf-process { grid-template-columns: 1fr 1fr; }
-    .pf-section { padding: 2.5rem 1.25rem; }
-    .pf-hero-left { padding: 2.5rem 1.25rem; }
-    .pf-hero-card-wrap { max-width: none; }
+    .pf-skills-grid { grid-template-columns: 1fr; }
+    .pf-process { grid-template-columns: 1fr; }
+    .pf-section { padding: 2.5rem max(1.1rem, env(safe-area-inset-right)) 2.5rem max(1.1rem, env(safe-area-inset-left)); }
+    .pf-hero-right { order: -1; min-height: min(40vh, 380px); }
+    .pf-hero-left {
+      border-bottom: none;
+      border-top: 0.5px solid rgba(232,228,220,0.12);
+      padding: 2rem max(1.1rem, env(safe-area-inset-right)) 1.75rem max(1.1rem, env(safe-area-inset-left));
+    }
+    .pf-hero-img { min-height: min(36vh, 340px); }
+    .pf-hero-card-wrap { max-width: none; margin-left: auto; margin-right: auto; }
     .pf-hero-card:hover { transform: none; }
-    .pf-contact-left, .pf-contact-right { padding: 2rem 1.25rem; }
+    .pf-hero-desc { max-width: none; margin: 1.25rem 0 1.75rem; font-size: 14px; line-height: 1.65; }
+    .pf-cta {
+      width: 100%;
+      max-width: 100%;
+      min-height: 48px;
+      justify-content: center;
+      padding: 14px 20px;
+    }
+    .pf-stats-row { grid-template-columns: 1fr 1fr; }
+    .pf-stat { padding: 1.25rem 0.85rem; }
+    .pf-stat-num { font-size: clamp(26px, 8vw, 34px); }
+    .pf-stat-label { font-size: 10px; letter-spacing: 0.12em; }
+    .pf-section-title { font-size: clamp(22px, 6.5vw, 28px); }
+    .pf-work-img { height: auto; min-height: 200px; aspect-ratio: 16 / 10; }
+    .pf-work-info { padding: 1.1rem 1rem; }
+    .pf-skill-card, .pf-process-step { padding: 1.5rem 1.1rem; }
+    .pf-contact-left, .pf-contact-right {
+      padding: 2rem max(1.1rem, env(safe-area-inset-right)) 2rem max(1.1rem, env(safe-area-inset-left));
+    }
+    .pf-contact-heading { font-size: clamp(1.5rem, 7vw, 2rem); }
+    .pf-rate-price { font-size: clamp(1.35rem, 6vw, 1.75rem); }
+    .pf-footer {
+      flex-direction: column;
+      padding: 1.25rem max(1rem, env(safe-area-inset-right)) max(1.25rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+    }
   }
 </style>
 </head>
