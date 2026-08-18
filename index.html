@@ -157,6 +157,9 @@
   .pf-hero-desc { font-size: 15px; font-weight: 300; line-height: 1.7; color: rgba(232,228,220,0.55); max-width: 380px; margin: 2rem 0 3rem; }
   .pf-cta { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: #0a0a0a; background: #e8e4dc; padding: 14px 28px; border: none; cursor: pointer; transition: opacity 0.2s; font-family: 'DM Sans', sans-serif; text-decoration: none; width: fit-content; }
   .pf-cta:hover { opacity: 0.85; }
+  .pf-cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+  .pf-cta-alt { background: transparent; color: rgba(232,228,220,0.75); border: 0.5px solid rgba(232,228,220,0.25); }
+  .pf-cta-alt:hover { color: #e8e4dc; border-color: rgba(232,228,220,0.5); opacity: 1; }
 
   .pf-hero-right { display: grid; grid-template-rows: 1fr auto; min-height: 0; }
   .pf-hero-img {
@@ -204,6 +207,13 @@
   .pf-skill-items li { font-size: 12px; color: rgba(232,228,220,0.45); padding: 3px 0; border-bottom: 0.5px solid rgba(232,228,220,0.07); }
   .pf-skill-items li:last-child { border-bottom: none; }
 
+  .pf-about { display: grid; grid-template-columns: 1.65fr 1fr; gap: 3.5rem; align-items: start; }
+  .pf-about-body p { font-size: 15px; font-weight: 300; line-height: 1.8; color: rgba(232,228,220,0.55); max-width: 62ch; }
+  .pf-about-body p + p { margin-top: 1.2rem; }
+  .pf-about-facts { display: flex; flex-direction: column; gap: 1.4rem; }
+  .pf-fact-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(232,228,220,0.35); margin-bottom: 6px; }
+  .pf-fact-value { font-size: 14px; line-height: 1.6; color: rgba(232,228,220,0.7); }
+
   .pf-process { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: rgba(232,228,220,0.08); }
   .pf-process-step { background: #0a0a0a; padding: 2rem 1.5rem; }
   .pf-step-num { font-family: 'Playfair Display', serif; font-size: 11px; color: rgba(232,228,220,0.25); letter-spacing: 0.15em; margin-bottom: 1rem; }
@@ -218,7 +228,7 @@
   .pf-contact-heading em { font-style: italic; color: rgba(232,228,220,0.45); }
   .pf-contact-detail { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(232,228,220,0.35); margin-bottom: 4px; }
   .pf-rate-row { display: flex; align-items: baseline; gap: 8px; }
-  .pf-rate-price { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 400; color: #e8e4dc; }
+  .pf-rate-price { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 400; color: #e8e4dc; line-height: 1.35; }
   .pf-rate-label { font-size: 12px; color: rgba(232,228,220,0.4); }
   .pf-tz { font-size: 14px; color: rgba(232,228,220,0.6); }
   .pf-tag { display: inline-block; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(232,228,220,0.45); border: 0.5px solid rgba(232,228,220,0.2); padding: 5px 10px; margin: 2px; }
@@ -252,6 +262,7 @@
     .pf-work-grid { grid-template-columns: repeat(2, 1fr); }
     .pf-skills-grid { grid-template-columns: repeat(2, 1fr); }
     .pf-process { grid-template-columns: repeat(2, 1fr); }
+    .pf-about { grid-template-columns: 1fr; gap: 2.25rem; }
     .pf-contact { grid-template-columns: 1fr; }
     .pf-contact-left { border-right: none; border-bottom: 0.5px solid rgba(232,228,220,0.12); }
     .pf-section-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; margin-bottom: 2rem; }
@@ -271,7 +282,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 0.25rem 0.5rem;
+      gap: 0.25rem;
       row-gap: 0.5rem;
     }
     .pf-nav-links li { flex: 0 0 auto; }
@@ -280,8 +291,9 @@
       align-items: center;
       justify-content: center;
       min-height: 44px;
-      padding: 0.35rem 0.85rem;
+      padding: 0.35rem 0.6rem;
       font-size: 11px;
+      letter-spacing: 0.08em;
     }
     .pf-work-grid { grid-template-columns: 1fr; }
     .pf-skills-grid { grid-template-columns: 1fr; }
@@ -330,6 +342,7 @@
   <span class="pf-logo">Yousef Al-Hawary</span>
   <ul class="pf-nav-links">
     <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -350,7 +363,10 @@
       </div>
     </div>
     <p class="pf-hero-desc">I design and build high-converting stores, landing pages, and custom web apps for fashion, healthcare, logistics, and lifestyle brands — from pixel-perfect design to clean, live code.</p>
-    <a href="mailto:mxhdtr@gmail.com" class="pf-cta">Get in touch ↗</a>
+    <div class="pf-cta-row">
+      <a href="https://wa.me/201026781213" target="_blank" rel="noopener noreferrer" class="pf-cta">WhatsApp me ↗</a>
+      <a href="mailto:mxhdtr@gmail.com" class="pf-cta pf-cta-alt">Email ↗</a>
+    </div>
   </div>
   <div class="pf-hero-right">
     <div class="pf-hero-img">
@@ -362,8 +378,8 @@
         <div class="pf-stat-label">Day turnaround</div>
       </div>
       <div class="pf-stat">
-        <div class="pf-stat-num">EGY</div>
-        <div class="pf-stat-label">Egypt / EST overlap</div>
+        <div class="pf-stat-num">06</div>
+        <div class="pf-stat-label">Projects shipped</div>
       </div>
     </div>
   </div>
@@ -438,10 +454,42 @@
   </div>
 </section>
 
+<section class="pf-section" id="about">
+  <div class="pf-section-header">
+    <h2 class="pf-section-title">About</h2>
+    <span class="pf-section-num">02</span>
+  </div>
+  <div class="pf-about">
+    <div class="pf-about-body">
+      <p>I'm Yousef — a designer and developer based in Egypt, working across Shopify and custom web development. I build the storefront and the software behind it: Liquid themes and page builders on one side, React and Next.js applications on the other.</p>
+      <p>That range is deliberate. A bridal store, a dental clinic, a freight platform and an internal sales CRM don't need the same tool, and I'd rather pick the right one than sell the same build to every client.</p>
+      <p>I work directly with founders and small teams — brief and audit, design in Figma, then build and launch. Landing pages turn around in two to four days; larger builds are scoped per project. I'm on UTC+3 and keep a flexible overlap with EST.</p>
+    </div>
+    <div class="pf-about-facts">
+      <div>
+        <div class="pf-fact-label">Based in</div>
+        <div class="pf-fact-value">Egypt (UTC+3) — flexible EST overlap</div>
+      </div>
+      <div>
+        <div class="pf-fact-label">Builds with</div>
+        <div class="pf-fact-value">Shopify &amp; Liquid · Next.js / React · Figma</div>
+      </div>
+      <div>
+        <div class="pf-fact-label">Sectors</div>
+        <div class="pf-fact-value">Bridal, healthcare, medical, logistics, internal tools</div>
+      </div>
+      <div>
+        <div class="pf-fact-label">Availability</div>
+        <div class="pf-fact-value">Open for new projects</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="pf-section" id="skills">
   <div class="pf-section-header">
     <h2 class="pf-section-title">Skills & tools</h2>
-    <span class="pf-section-num">02</span>
+    <span class="pf-section-num">03</span>
   </div>
   <div class="pf-skills-grid">
     <div class="pf-skill-card">
@@ -470,12 +518,12 @@
 <section class="pf-section" id="process">
   <div class="pf-section-header">
     <h2 class="pf-section-title">How I work</h2>
-    <span class="pf-section-num">03</span>
+    <span class="pf-section-num">04</span>
   </div>
   <div class="pf-process">
-    <div class="pf-process-step"><div class="pf-step-num">01</div><div class="pf-step-title">Brief & audit</div><div class="pf-step-desc">Understand the brand, niche, and goals. Audit existing store if applicable.</div></div>
+    <div class="pf-process-step"><div class="pf-step-num">01</div><div class="pf-step-title">Brief & audit</div><div class="pf-step-desc">Understand the brand, niche, and goals. Audit the existing site or store if there is one.</div></div>
     <div class="pf-process-step"><div class="pf-step-num">02</div><div class="pf-step-title">Design</div><div class="pf-step-desc">Wireframe and design in Figma — clean, modern, and conversion-focused.</div></div>
-    <div class="pf-process-step"><div class="pf-step-num">03</div><div class="pf-step-title">Build & code</div><div class="pf-step-desc">Implement directly in Shopify — Liquid, custom CSS/JS, or page builder.</div></div>
+    <div class="pf-process-step"><div class="pf-step-num">03</div><div class="pf-step-title">Build & code</div><div class="pf-step-desc">Build in Shopify with Liquid or a page builder, or custom in Next.js — whichever the project calls for.</div></div>
     <div class="pf-process-step"><div class="pf-step-num">04</div><div class="pf-step-title">Review & launch</div><div class="pf-step-desc">QA, revisions, and fast delivery. Post-launch support included.</div></div>
   </div>
 </section>
@@ -490,17 +538,20 @@
     </div>
     <div class="pf-contact-right">
       <div>
-        <div class="pf-contact-detail">Per landing page — custom design & build</div>
+        <div class="pf-contact-detail">Engagements</div>
         <div class="pf-rate-row">
-          <span class="pf-rate-price">$80</span>
-          <span class="pf-rate-label">/ lander — 2–4 day turnaround</span>
+          <span class="pf-rate-price">Landing pages, store builds &amp; web apps</span>
         </div>
+        <div class="pf-rate-label" style="margin-top:6px;">Scoped per project — 2–4 day turnaround on landers</div>
       </div>
       <div>
         <div class="pf-contact-detail">Timezone</div>
         <div class="pf-tz">Egypt (UTC+3) — flexible EST overlap</div>
       </div>
-      <a href="mailto:mxhdtr@gmail.com" class="pf-cta" style="margin-top:1rem;">Get in touch ↗</a>
+      <div class="pf-cta-row" style="margin-top:1rem;">
+        <a href="https://wa.me/201026781213" target="_blank" rel="noopener noreferrer" class="pf-cta">WhatsApp me ↗</a>
+        <a href="mailto:mxhdtr@gmail.com" class="pf-cta pf-cta-alt">Email ↗</a>
+      </div>
     </div>
   </div>
 </div>
@@ -560,6 +611,7 @@
   });
 })();
 </script>
+<script defer src="/_vercel/insights/script.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
